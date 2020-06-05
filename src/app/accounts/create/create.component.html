@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <aside class="col-12 col-sm-12 col-md-4">
+            <div class="card">
+                <article class="card-body">
+                    <h4 class="card-title mb-4 mt-1">Create new wallet</h4>
+                    <form (ngSubmit)="confirmation()" [formGroup]="form">
+                        <div class="form-group">
+                            <label for="meneumonic">Your mneumonic phrase</label>
+                            <textarea class="form-control" id="mneumonic" name="mneumonic" rows="3"
+                                formControlName="mneumonic" readonly></textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="text-center">
+                                <button class="btn btn-lg btn-outline-primary save-btn download-btn" (click)="download()">
+                                    <i class="fa fa-download"></i>
+                                </button>
+                                <button class="btn btn-lg  btn-outline-primary save-btn" (click)="print()">
+                                    <i class="fa fa-print"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block"> I saved my mneumonic </button>
+                        </div>
+                    </form>
+                </article>
+            </div>
+        </aside>
+    </div>
+</div>

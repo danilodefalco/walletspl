@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+  <button class="nav-link btn btn-light" (click)="toggleSidebar()">
+    <i class="fa fa-lg fa-bars"></i>
+  </button>
+  <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" data-toggle="collapse"
+    data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" [ngbCollapse]="isCollapsed">
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" (click)="signout()">
+          <i class="fa fa-sign-out fa-lg"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

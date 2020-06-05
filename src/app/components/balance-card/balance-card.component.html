@@ -1,0 +1,20 @@
+<div class="card img-fluid success">
+    <div class="card-img-top">
+        <i class="fa fa-money"></i>
+    </div>
+    <div class="card-img-overlay">
+        <h4 class="card-title text-right">Balance</h4>
+        <p class="card-text text-right">
+            {{balanceErc20}} SPL
+        </p>
+        <p class="card-text text-right">
+            &nbsp;
+        </p>
+        <!-- <p class="card-text text-right">
+            {{balanceEther}} ETH
+        </p> -->
+        <div class="card-btn text-right">
+            <button class="btn btn-lg" (click)="updateBalance()"><i class="fa fa-refresh"></i></button>
+        </div>
+    </div>
+</div>

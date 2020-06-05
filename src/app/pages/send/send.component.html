@@ -1,0 +1,25 @@
+<h4>Send transaction</h4>
+
+<form (ngSubmit)="send()" [formGroup]="form">
+    <div class="form-row">
+        <div class="form-group col-12 com-sm-12 col-md-6">
+            <label for="toAddress">To address</label>
+            <input type="text" class="form-control" id="toAddress" formControlName="toAddress"
+                [ngClass]="{ 'is-invalid': form.controls.toAddress.invalid && form.controls.toAddress.dirty, 'is-valid': form.controls.toAddress.valid }">
+            <span class="text-danger" *ngIf="form.controls.toAddress.invalid && form.controls.toAddress.dirty">
+                <p *ngIf="form.controls.toAddress.errors.required">To address is required!</p>
+                <p *ngIf="form.controls.toAddress.errors.rangeLength">To address must be exactle 42 characters!</p>
+            </span>
+        </div>
+        <div class="form-group col-12 com-sm-12 col-md-6">
+            <label for="amount">Amount</label>
+            <input type="text" class="form-control" id="amount" formControlName="amount"
+                [ngClass]="{ 'is-invalid': form.controls.amount.invalid && form.controls.amount.dirty, 'is-valid': form.controls.amount.valid }">
+            <span class="text-danger" *ngIf="form.controls.amount.invalid && form.controls.amount.dirty">
+                <p *ngIf="form.controls.amount.errors.required">Amount is required!</p>
+                <p *ngIf="form.controls.amount.errors.number">Invalid format!</p>
+            </span>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-outline-primary" [disabled]="form.invalid">Send</button>
+</form>
