@@ -49,6 +49,11 @@
   color: #FFF;
 }
 
+.modal-header{
+  background-color: #132644;
+  color: #FFF;
+  font-weight: bold;
+}
 /* .card i {
   font-size: 5em;
   opacity: 0.2;

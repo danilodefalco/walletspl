@@ -12,16 +12,22 @@
                         </div>
                         <div class="form-group">
                             <div class="text-center">
-                                <button class="btn btn-lg btn-outline-primary save-btn download-btn" (click)="download()">
-                                    <i class="fa fa-download"></i>
-                                </button>
-                                <button class="btn btn-lg  btn-outline-primary save-btn" (click)="print()">
-                                    <i class="fa fa-print"></i>
-                                </button>
+                                <div class="btn-group" role="group">
+                                    <a [href]="fileUrl" download="mneumonic.txt" class="btn btn-lg btn-outline-secondary">
+                                        <i class="fa fa-download"></i>
+                                    </a>
+                                    <a href="javascript:void(0)" class="btn btn-lg  btn-outline-secondary" (click)="copyToClipboard()">
+                                        <i class="fa fa-copy"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-block"> I saved my mneumonic </button>
+                        </div>
+                        <div class="form-group">
+                            <button [routerLink]="['/accounts/signin']" class="btn btn-outline-primary btn-block"> Back
+                            </button>
                         </div>
                     </form>
                 </article>

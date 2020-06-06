@@ -17,6 +17,10 @@ export class BalanceCardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    this.smartContractService.updateBalanceErc20();
+    this.smartContractService.updateBalanceEther();
+
     this.smartContractService.balanceEther.subscribe(
       (balanceEther) => {
         this.balanceEther = balanceEther;
@@ -26,9 +30,6 @@ export class BalanceCardComponent implements OnInit {
       (balanceErc20) => {
         this.balanceErc20 = balanceErc20;
       });
-
-    this.smartContractService.updateBalanceErc20();
-    this.smartContractService.updateBalanceEther();
   }
 
   updateBalance() {

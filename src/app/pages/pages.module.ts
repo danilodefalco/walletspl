@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CustomFormsModule } from 'ngx-custom-validators';
 import { TextMaskModule } from 'angular2-text-mask';
+import { QRCodeModule } from 'angularx-qrcode';
 
 import { PagesAppComponent } from './pages.app.component';
 import { PagesRoutingModule } from './pages.route';
@@ -44,7 +45,8 @@ import { SendComponent } from './send/send.component';
         ReactiveFormsModule,
         NgbModule,
         CustomFormsModule,
-        TextMaskModule
+        TextMaskModule,
+        QRCodeModule
     ],
     providers: [
         SidebarService
