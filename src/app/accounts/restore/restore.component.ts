@@ -57,9 +57,15 @@ export class RestoreComponent {
         });
       }
     } catch{
-      this.toastrService.error('Error', 'Error to restore wallet!', {
+      const toastr = this.toastrService.error('Error', 'Error to restore wallet!', {
         progressBar: true
       });
+
+      if(toastr){
+        toastr.onHidden.subscribe(() => {
+          this.spinner.hide();
+        });
+      }
     }
   }
 }

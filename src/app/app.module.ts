@@ -4,7 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
-import { NgxSpinnerModule } from "ngx-spinner";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +15,7 @@ import { SecurityService } from './services/security.service';
 import { WalletService } from './services/wallet.service';
 import { StorageService } from './services/storage.service';
 import { SigninService } from './services/signin.service';
-import { SmartContractService } from './services/smart-contract.service';
+import { TokenResolve } from './resolves/token.resolve';
 
 @NgModule({
   declarations: [
@@ -28,7 +27,6 @@ import { SmartContractService } from './services/smart-contract.service';
     NgbModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    NgxSpinnerModule,
     AccountModule,
     PagesModule
   ],
@@ -36,7 +34,8 @@ import { SmartContractService } from './services/smart-contract.service';
     WalletService,
     StorageService,
     SigninService,
-    SecurityService
+    SecurityService,
+    TokenResolve
   ],
   bootstrap: [
     AppComponent

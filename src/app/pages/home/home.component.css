@@ -71,3 +71,15 @@
 .card .card-btn button:hover {
     color: #fff;
 }
+
+.headerBtn {
+    margin: 20px 0;
+}
+.linkWallet {
+	color: #000;
+    transition: all 0.2s ease-in-out
+}
+.linkWallet:hover {
+    color: #d35613;
+	box-shadow: inset 0 -1px 0 #d35613;
+}

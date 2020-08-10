@@ -1,3 +1,16 @@
+:root {
+  --color-first: rgba(19, 38, 68);
+  --color-second: rgb(211, 86, 19);
+  --color-third: rgb(211, 86, 19, 0.5);
+  --color-bedroom: rgb(0, 156, 222);
+  --color-neutral: rgb(255, 255, 255);
+  --color-background: rgb(250, 249, 251);
+  --linear-gradient: linear-gradient(279.76deg, #132644 -2.61%, #d35613 80.69%);
+  --font-text: 1.3rem;
+  --text-link: none;
+  --link-transition: 0.5s;
+  --color-border-light: 6px solid var(--color-second);
+}
 body {
   overflow-x: hidden;
 }

@@ -48,9 +48,15 @@ export class CreateConfirmationComponent {
       const localMneumonic = this.storageService.getLocalStorage(LocalStorageKeysEnum.mneumonic);
 
       if (localMneumonic !== this.model.mneumonic) {
-        this.toastrService.error('Error', 'Invalid Mneumonic!', {
+        const toastr = this.toastrService.error('Error', 'Invalid Mneumonic!', {
           progressBar: true
         });
+        if (toastr) {
+          toastr.onHidden.subscribe(() => {
+            this.spinner.hide();
+          });
+          return;
+        }
       }
 
       const wallet = this.walletService.restore(this.model.mneumonic);

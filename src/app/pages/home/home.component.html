@@ -1,13 +1,18 @@
-
+<br>
+<div class="row justify-content-md-center">
+        <div class="alert alert-info justify-content-md-center" role="alert" >
+            <a [routerLink]="['/pages/wallet-details']" class="linkWallet"> <b>My Address:</b><br> {{address}}</a> &nbsp;<button (click)="copyToClipboard()" class="btn btn-outline-dark"><i class="fa fa-copy"></i></button>
+          </div>
+</div>
+<div class="row">
+    <div class="col-12 col-sm-6 col-md-7 col-lg-7 mt-4">
+        <a [routerLink]="['/pages/token-add']" class="btn btn-info headerBtn">Add token</a>
+    </div>
+    
+</div>
 
 <div class="row">
-    <div class="col-12 col-sm-12 col-md-4">
-        <app-address-card></app-address-card>
-    </div>
-    <div class="col-12 col-sm-12 col-md-4">
-        <app-balance-card></app-balance-card>
-    </div>
-    <div class="col-12 col-sm-12 col-md-4">
-        <app-network-card [body]="cardNetworkBody"></app-network-card>
+    <div class="col-12 col-sm-12 col-md-12">
+        <app-token-list></app-token-list>
     </div>
 </div>

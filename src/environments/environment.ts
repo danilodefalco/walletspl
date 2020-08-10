@@ -2,13 +2,12 @@ export const environment = {
   production: false,
   encryptHey: '836ea0e2-0b06-42d2-84f0-e2ac31cdfd21',
   blockchainNode: {
-    rinkeby: true,
     provider: 'http',
-    host: '127.0.0.1',
+    host: '147.135.4.82',
     port: 8545
   },
   smartContract: {
-    address: '0xA2443AB20651F6B938d9EA6398c2b012396e5773',
+    address: '0x6DBE4F761d8A576fcEF09b9Eb467d1224D401602',
     abi: [
       {
         "inputs": [
@@ -33,7 +32,6 @@ export const environment = {
             "type": "uint256"
           }
         ],
-        "payable": false,
         "stateMutability": "nonpayable",
         "type": "constructor"
       },
@@ -43,45 +41,19 @@ export const environment = {
           {
             "indexed": true,
             "internalType": "address",
-            "name": "account",
-            "type": "address"
-          }
-        ],
-        "name": "AdminAdded",
-        "type": "event"
-      },
-      {
-        "anonymous": false,
-        "inputs": [
-          {
-            "indexed": true,
-            "internalType": "address",
-            "name": "account",
-            "type": "address"
-          }
-        ],
-        "name": "AdminRemoved",
-        "type": "event"
-      },
-      {
-        "anonymous": false,
-        "inputs": [
-          {
-            "indexed": true,
-            "internalType": "address",
-            "name": "_owner",
+            "name": "owner",
             "type": "address"
           },
           {
             "indexed": true,
             "internalType": "address",
-            "name": "_spender",
+            "name": "spender",
             "type": "address"
           },
           {
             "indexed": false,
             "internalType": "uint256",
-            "name": "_value",
+            "name": "value",
             "type": "uint256"
           }
         ],
@@ -119,32 +91,6 @@ export const environment = {
           {
             "indexed": true,
             "internalType": "address",
-            "name": "_account",
-            "type": "address"
-          }
-        ],
-        "name": "BurnerAdded",
-        "type": "event"
-      },
-      {
-        "anonymous": false,
-        "inputs": [
-          {
-            "indexed": true,
-            "internalType": "address",
-            "name": "_account",
-            "type": "address"
-          }
-        ],
-        "name": "BurnerRemoved",
-        "type": "event"
-      },
-      {
-        "anonymous": false,
-        "inputs": [
-          {
-            "indexed": true,
-            "internalType": "address",
             "name": "minter",
             "type": "address"
           },
@@ -168,32 +114,6 @@ export const environment = {
         "anonymous": false,
         "inputs": [
           {
-            "indexed": true,
-            "internalType": "address",
-            "name": "_account",
-            "type": "address"
-          }
-        ],
-        "name": "MinterAdded",
-        "type": "event"
-      },
-      {
-        "anonymous": false,
-        "inputs": [
-          {
-            "indexed": true,
-            "internalType": "address",
-            "name": "_account",
-            "type": "address"
-          }
-        ],
-        "name": "MinterRemoved",
-        "type": "event"
-      },
-      {
-        "anonymous": false,
-        "inputs": [
-          {
             "indexed": false,
             "internalType": "address",
             "name": "account",
@@ -209,19 +129,19 @@ export const environment = {
           {
             "indexed": true,
             "internalType": "address",
-            "name": "_from",
+            "name": "from",
             "type": "address"
           },
           {
             "indexed": true,
             "internalType": "address",
-            "name": "_to",
+            "name": "to",
             "type": "address"
           },
           {
             "indexed": false,
             "internalType": "uint256",
-            "name": "_value",
+            "name": "value",
             "type": "uint256"
           }
         ],
@@ -242,145 +162,6 @@ export const environment = {
         "type": "event"
       },
       {
-        "constant": false,
-        "inputs": [
-          {
-            "internalType": "address",
-            "name": "_account",
-            "type": "address"
-          }
-        ],
-        "name": "addAdmin",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "constant": false,
-        "inputs": [
-          {
-            "internalType": "address",
-            "name": "_account",
-            "type": "address"
-          }
-        ],
-        "name": "addBurner",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "constant": false,
-        "inputs": [
-          {
-            "internalType": "address",
-            "name": "_account",
-            "type": "address"
-          }
-        ],
-        "name": "addMinter",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "constant": true,
-        "inputs": [],
-        "name": "admins",
-        "outputs": [
-          {
-            "internalType": "address[]",
-            "name": "",
-            "type": "address[]"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "constant": true,
-        "inputs": [],
-        "name": "burners",
-        "outputs": [
-          {
-            "internalType": "address[]",
-            "name": "",
-            "type": "address[]"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "constant": true,
-        "inputs": [
-          {
-            "internalType": "address",
-            "name": "_account",
-            "type": "address"
-          }
-        ],
-        "name": "isAdmin",
-        "outputs": [
-          {
-            "internalType": "bool",
-            "name": "",
-            "type": "bool"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "constant": true,
-        "inputs": [
-          {
-            "internalType": "address",
-            "name": "_account",
-            "type": "address"
-          }
-        ],
-        "name": "isBurner",
-        "outputs": [
-          {
-            "internalType": "bool",
-            "name": "",
-            "type": "bool"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "constant": true,
-        "inputs": [
-          {
-            "internalType": "address",
-            "name": "_account",
-            "type": "address"
-          }
-        ],
-        "name": "isMinter",
-        "outputs": [
-          {
-            "internalType": "bool",
-            "name": "",
-            "type": "bool"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "constant": true,
         "inputs": [],
         "name": "isOwner",
         "outputs": [
@@ -390,27 +171,11 @@ export const environment = {
             "type": "bool"
           }
         ],
-        "payable": false,
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
       },
       {
-        "constant": true,
-        "inputs": [],
-        "name": "minters",
-        "outputs": [
-          {
-            "internalType": "address[]",
-            "name": "",
-            "type": "address[]"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "constant": true,
         "inputs": [],
         "name": "owner",
         "outputs": [
@@ -420,21 +185,18 @@ export const environment = {
             "type": "address"
           }
         ],
-        "payable": false,
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
       },
       {
-        "constant": false,
         "inputs": [],
         "name": "pause",
         "outputs": [],
-        "payable": false,
         "stateMutability": "nonpayable",
         "type": "function"
       },
       {
-        "constant": true,
         "inputs": [],
         "name": "paused",
         "outputs": [
@@ -444,66 +206,18 @@ export const environment = {
             "type": "bool"
           }
         ],
-        "payable": false,
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
       },
       {
-        "constant": false,
-        "inputs": [
-          {
-            "internalType": "address",
-            "name": "_account",
-            "type": "address"
-          }
-        ],
-        "name": "removeAdmin",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "constant": false,
-        "inputs": [
-          {
-            "internalType": "address",
-            "name": "_account",
-            "type": "address"
-          }
-        ],
-        "name": "removeBurner",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "constant": false,
-        "inputs": [
-          {
-            "internalType": "address",
-            "name": "_account",
-            "type": "address"
-          }
-        ],
-        "name": "removeMinter",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "constant": false,
         "inputs": [],
         "name": "unpause",
         "outputs": [],
-        "payable": false,
         "stateMutability": "nonpayable",
         "type": "function"
       },
       {
-        "constant": true,
         "inputs": [],
         "name": "name",
         "outputs": [
@@ -513,12 +227,11 @@ export const environment = {
             "type": "string"
           }
         ],
-        "payable": false,
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
       },
       {
-        "constant": true,
         "inputs": [],
         "name": "symbol",
         "outputs": [
@@ -528,12 +241,11 @@ export const environment = {
             "type": "string"
           }
         ],
-        "payable": false,
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
       },
       {
-        "constant": true,
         "inputs": [],
         "name": "decimals",
         "outputs": [
@@ -543,12 +255,11 @@ export const environment = {
             "type": "uint8"
           }
         ],
-        "payable": false,
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
       },
       {
-        "constant": true,
         "inputs": [],
         "name": "totalSupply",
         "outputs": [
@@ -558,12 +269,11 @@ export const environment = {
             "type": "uint256"
           }
         ],
-        "payable": false,
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
       },
       {
-        "constant": false,
         "inputs": [
           {
             "internalType": "address",
@@ -584,12 +294,10 @@ export const environment = {
             "type": "bool"
           }
         ],
-        "payable": false,
         "stateMutability": "nonpayable",
         "type": "function"
       },
       {
-        "constant": true,
         "inputs": [
           {
             "internalType": "address",
@@ -605,12 +313,11 @@ export const environment = {
             "type": "uint256"
           }
         ],
-        "payable": false,
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
       },
       {
-        "constant": false,
         "inputs": [
           {
             "internalType": "address",
@@ -631,12 +338,10 @@ export const environment = {
             "type": "bool"
           }
         ],
-        "payable": false,
         "stateMutability": "nonpayable",
         "type": "function"
       },
       {
-        "constant": false,
         "inputs": [
           {
             "internalType": "address",
@@ -662,12 +367,10 @@ export const environment = {
             "type": "bool"
           }
         ],
-        "payable": false,
         "stateMutability": "nonpayable",
         "type": "function"
       },
       {
-        "constant": true,
         "inputs": [
           {
             "internalType": "address",
@@ -688,12 +391,11 @@ export const environment = {
             "type": "uint256"
           }
         ],
-        "payable": false,
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
       },
       {
-        "constant": false,
         "inputs": [
           {
             "internalType": "address",
@@ -714,12 +416,10 @@ export const environment = {
             "type": "bool"
           }
         ],
-        "payable": false,
         "stateMutability": "nonpayable",
         "type": "function"
       },
       {
-        "constant": false,
         "inputs": [
           {
             "internalType": "address",
@@ -740,12 +440,10 @@ export const environment = {
             "type": "bool"
           }
         ],
-        "payable": false,
         "stateMutability": "nonpayable",
         "type": "function"
       },
       {
-        "constant": false,
         "inputs": [
           {
             "internalType": "address",
@@ -760,12 +458,10 @@ export const environment = {
         ],
         "name": "mintTo",
         "outputs": [],
-        "payable": false,
         "stateMutability": "nonpayable",
         "type": "function"
       },
       {
-        "constant": false,
         "inputs": [
           {
             "internalType": "address",
@@ -780,19 +476,27 @@ export const environment = {
         ],
         "name": "burnFrom",
         "outputs": [],
-        "payable": false,
         "stateMutability": "nonpayable",
         "type": "function"
       }
-    ]
+    ],
+    gasLimit: 8000000,
+    gasPrice: 0
+  },
+  api: {
+    server: "http://147.135.4.82",
+    port: "3000"
   }
 };
 
 /*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
+Besu host
+http://147.135.4.82:8545
+
+Besu addresses
+SPL - 0x6DBE4F761d8A576fcEF09b9Eb467d1224D401602
+LUI - 0x495F5C25d912e67751f84319A81e7c04b0F2547D
+
+Besu API
+http://147.135.4.82:3000
  */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.

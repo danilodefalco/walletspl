@@ -1,0 +1,14 @@
+<section>
+    <div class="card shadow p-3 mt-5 bg-white rounded cards"
+        [ngClass]="{'card-success': item.status, 'card-failed':!item.status}" *ngFor="let item of list">
+        <span routerLinkActive="router-link-active">{{ item.hash }}</span>
+        <div class="d-flex row justify-content-around">
+            <p>{{ item.time * 1000 | date }}</p>
+            <p class="type">
+                {{type}}
+                <span *ngIf="type == 'From'"> {{ item.from }}</span>
+                <span *ngIf="type == 'To'"> {{ item.to }}</span>
+            </p>
+        </div>
+    </div>
+</section>

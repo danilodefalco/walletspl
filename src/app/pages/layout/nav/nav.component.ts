@@ -1,7 +1,6 @@
-import { Component, EventEmitter, Output } from "@angular/core";
+import { Component, EventEmitter, Output, OnInit } from "@angular/core";
 import { SidebarService } from '../../../services/sidebar.service';
 import { SigninService } from 'src/app/services/signin.service';
-import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,10 +8,9 @@ import { Router } from '@angular/router';
     templateUrl: './nav.component.html',
     styleUrls: ['nav.component.css']
 })
-export class NavComponent {
+export class NavComponent implements OnInit {
     isCollapsed: boolean;
     isToggled: boolean;
-    address: Observable<string>;
 
     constructor(
         private sidebarService: SidebarService,
@@ -20,7 +18,9 @@ export class NavComponent {
         private router: Router
     ) {
         this.isCollapsed = true;
-        this.address = this.signinService.address;
+    }
+
+    ngOnInit(): void {
     }
 
     toggleSidebar() {

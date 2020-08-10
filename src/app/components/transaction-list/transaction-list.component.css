@@ -1,0 +1,7 @@
+.card-success {
+    border-left: 6px solid #008000;
+}
+
+.card-failed {
+    border-left: 6px solid #FF0000;
+}

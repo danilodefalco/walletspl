@@ -1,0 +1,24 @@
+<div class="card">
+    <div class="card-header text-center">
+        <h4>Add token</h4>
+    </div>
+    <div class="card-body">
+        <form (ngSubmit)="add()" [formGroup]="form">
+            <div class="form-row">
+                <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12">
+                    <label for="tokenAddress">Token address</label>
+                    <input type="text" class="form-control" id="tokenAddress" formControlName="tokenAddress"
+                        [ngClass]="{ 'is-invalid': form.controls.tokenAddress.invalid && form.controls.tokenAddress.dirty, 'is-valid': form.controls.tokenAddress.valid }">
+                    <span class="text-danger"
+                        *ngIf="form.controls.tokenAddress.invalid && form.controls.tokenAddress.dirty">
+                        <p *ngIf="form.controls.tokenAddress.errors.required">To address is required!</p>
+                        <p *ngIf="form.controls.tokenAddress.errors.rangeLength">To address must be exactle 42
+                            characters!</p>
+                    </span>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-outline-dark" [disabled]="form.invalid">Add</button>
+        </form>
+    </div>
+</div>

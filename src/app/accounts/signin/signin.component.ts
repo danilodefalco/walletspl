@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
+import { ethers } from 'ethers';
 import { CustomValidators } from 'ngx-custom-validators';
 import { WalletService } from 'src/app/services/wallet.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { SmartContractService } from 'src/app/services/smart-contract.service';
 import { SigninService } from 'src/app/services/signin.service';
 import { Router } from '@angular/router';
 import { SecurityService } from 'src/app/services/security.service';
+import { provider } from 'src/app/services/ethers.service';
+import { ContractService } from 'src/app/services/contract.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-signin',
@@ -21,14 +23,16 @@ export class SigninComponent {
   password: string;
 
   constructor(
+    @Inject(provider) private ethersProvider: ethers.providers.Web3Provider,
+    private contractService: ContractService,
     private fb: FormBuilder,
     private walletService: WalletService,
     private toastrService: ToastrService,
-    private smartContractService: SmartContractService,
     private spinner: NgxSpinnerService,
     private signinService: SigninService,
     private router: Router,
-    private securityService: SecurityService
+    private securityService: SecurityService,
+    private tokenService: TokenService
   ) {
     this.form = this.fb.group({
       password: ['', [Validators.required, CustomValidators.rangeLength([6, 15])]]
@@ -37,6 +41,8 @@ export class SigninComponent {
 
   async signin() {
     try {
+      this.ethersProvider = await this.ethersProvider;
+
       this.spinner.show();
 
       this.password = this.form.controls.password.value;
@@ -60,8 +66,12 @@ export class SigninComponent {
 
       this.signinService.setAddress(wallet.address);
 
-      const encryptPassword = this.securityService.encrypt(this.password);
-      this.signinService.setPassword(encryptPassword);
+      this.signinService.setPassword(this.password);
+
+      if (!this.tokenService.exists()) {
+        console.log('not exists')
+        await this.tokenService.initiate();
+      }
 
       this.spinner.hide();
 

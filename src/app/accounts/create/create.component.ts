@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { DomSanitizer } from '@angular/platform-browser';
 
 import { WalletService } from 'src/app/services/wallet.service';
 import { StorageService } from 'src/app/services/storage.service';
@@ -17,14 +16,18 @@ import { ToastrService } from 'ngx-toastr';
 export class CreateComponent implements OnInit {
 
   form: FormGroup;
-  fileUrl;
+
+  private setting = {
+    element: {
+      dynamicDownload: null as HTMLElement
+    }
+  }
 
   constructor(
     private fb: FormBuilder,
     private walletService: WalletService,
     private storageService: StorageService,
     private router: Router,
-    private sanitizer: DomSanitizer,
     private toastrService: ToastrService
   ) {
     this.form = this.fb.group({
@@ -35,17 +38,14 @@ export class CreateComponent implements OnInit {
   ngOnInit(): void {
     const wallet = this.walletService.create();
 
-    this.storageService.setLocalStorage(LocalStorageKeysEnum.mneumonic, wallet.mnemonic);
+    this.storageService.setLocalStorage(LocalStorageKeysEnum.mneumonic, wallet.mnemonic.phrase);
 
     this.form.patchValue({
-      mneumonic: wallet.mnemonic
+      mneumonic: wallet.mnemonic.phrase
     });
-
-    const blob = new Blob([wallet.mnemonic], { type: 'application/octet-stream' });
-    this.fileUrl = this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob));
   }
 
-  copyToClipboard(){
+  copyToClipboard() {
     const selBox = document.createElement('textarea');
     selBox.style.position = 'fixed';
     selBox.style.left = '0';
@@ -65,5 +65,29 @@ export class CreateComponent implements OnInit {
 
   confirmation() {
     this.router.navigate(['/accounts/create-confirmation']);
+  }
+
+  downloadMneumonic() {
+    this.dyanmicDownloadByHtmlTag({
+      fileName: 'mneumonic',
+      text: JSON.stringify(this.form.controls.mneumonic.value)
+    });
+    return;
+  }
+
+  private dyanmicDownloadByHtmlTag(arg: {
+    fileName: string,
+    text: string
+  }) {
+    if (!this.setting.element.dynamicDownload) {
+      this.setting.element.dynamicDownload = document.createElement('a');
+    }
+    const element = this.setting.element.dynamicDownload;
+    const fileType = arg.fileName.indexOf('.json') > -1 ? 'text/json' : 'text/plain';
+    element.setAttribute('href', `data:${fileType};charset=utf-8,${encodeURIComponent(arg.text)}`);
+    element.setAttribute('download', arg.fileName);
+
+    var event = new MouseEvent("click");
+    element.dispatchEvent(event);
   }
 }

@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-12 col-sm-12 col-md-12">
+        <div class="ml-3">
+            <h3>Name:</h3>
+            <p>{{ token.name }}</p>
+        </div>
+        <div class="ml-3">
+            <h3>Symbol:</h3>
+            <p>{{ token.symbol }}</p>
+        </div>
+        <div class="ml-3">
+            <h3>Address:</h3>
+            <p>{{ token.address }}</p>
+        </div>
+        <div class="ml-3">
+            <h3>Total supply:</h3>
+            <p>{{ token.totalSupply }}</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 col-sm-12 col-md-12">
+        <div class="d-flex align-items-center justify-content-evely col-md-12">
+                <a [routerLink]="['/pages/home']" class="btn btn-outline-dark">Back</a>
+        </div>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-12 col-sm-12 col-md-12">
+        <app-transaction-list [list]="transactions"></app-transaction-list>
+    </div>
+</div>

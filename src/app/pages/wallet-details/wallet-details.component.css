@@ -1,0 +1,17 @@
+.btns button {
+    margin-left: 5px;
+}
+
+.modal-header{
+    background-color: #132644;
+    color: #FFF;
+    font-weight: bold;
+  }
+
+  .btn-clear{
+    margin-right: 5px;
+  }
+
+  .btnBack{
+    margin: 30px 0;
+  }

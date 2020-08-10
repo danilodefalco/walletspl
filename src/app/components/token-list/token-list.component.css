@@ -1,0 +1,45 @@
+td>button {
+    margin-left: 5px;
+    width: 80px;
+}
+
+td>a {
+    margin-left: 5px;
+    width: 80px;
+}
+
+.modal-header {
+    background-color: #132644;
+    color: #FFF;
+    font-weight: bold;
+}
+
+.btn-outline-danger {
+    color: #dc3545 !important;
+}
+
+.btn-outline-danger:hover {
+    color: #fff !important;
+}
+
+.modal-body button{
+    margin-top: 20px;
+}
+
+.table-responsive{
+    padding-bottom: 120px !important;
+}
+
+.dropdown-item:hover{
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.card {
+    border-left: 6px solid #d35613;
+}
+
+a:hover{
+    background-color: #343a40 !important;
+}

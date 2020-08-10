@@ -13,3 +13,7 @@ nav a :hover {
 .navbar-toggler-icon {
     color: #132644 !important;
 }
+
+.active i{
+    color: #d35613 !important;
+}
