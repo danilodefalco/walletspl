@@ -2,7 +2,7 @@ export const environment = {
   production: true,
   encryptHey: '836ea0e2-0b06-42d2-84f0-e2ac31cdfd21',
   blockchainNode: {
-    provider: 'http',
+    provider: 'https',
     host: '147.135.4.82',
     port: 8545
   },
